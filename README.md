@@ -95,6 +95,12 @@ For this application I referred to Unit 17, Exercises 14, 15, and 26. My focus w
 
 ## Credits
 
+[Field Paths - Expressions](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#aggregation-expressions)
+
+[$addFields - Definition & Behavior](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
+
+[System Variables - Fields](https://docs.mongodb.com/manual/reference/aggregation-variables/#agg-system-variables)
+
 ## License
 
 [MIT](MITLicense.txt)
