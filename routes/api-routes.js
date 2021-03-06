@@ -37,7 +37,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// Add Exercise
+// Add Exercise (option 1)
 // $addFields (aggregation)
 router.put("/api/workouts/:id", (req, res) => {
   db.Workout.aggregate([
@@ -62,5 +62,26 @@ router.put("/api/workouts/:id", (req, res) => {
       res.json(err);
     });
 });
+
+// Add Exercise (option 2)
+// $inc increase/decrease the totalDuration field by the input duration, and
+// $push returns an array of all values that result from applying an expression to each document in a group of documents that share the same group by key. $push is only available in the $group stage
+
+// router.put("/api/workouts/:id", (req, res) => {
+//   db.Workout.findOneAndUpdate(
+//     { _id: req.params.id },
+//     {
+//       $inc: { totalDuration: req.body.duration },
+//       $push: { exercises: req.body },
+//     },
+//     { new: true }
+//   )
+//     .then((dbWorkout) => {
+//       res.json(dbWorkout);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 module.exports = router;
