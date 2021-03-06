@@ -37,4 +37,30 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+// Add Exercise
+// $addFields (aggregation)
+router.put("/api/workouts/:id", (req, res) => {
+  db.Workout.aggregate([
+    {
+      $addFields: {
+        totalDuration: { $sum: "$duration" },
+        totalDistance: { $sum: "$distance" },
+      },
+    },
+    {
+      $addFields: {
+        totalWeight: { $sum: "$weight" },
+        totalReps: { $sum: "$reps" },
+        totalSets: { $sum: "$sets" },
+      },
+    },
+  ])
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
