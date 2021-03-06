@@ -84,4 +84,18 @@ router.put("/api/workouts/:id", (req, res) => {
 //     });
 // });
 
+// Get Workouts in Range
+router.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
+    .then((dbWorkout) => {
+      console.log("All of your Workouts");
+      console.log(dbWorkout);
+
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
