@@ -1,0 +1,56 @@
+// MongoDB Playground
+
+// Select the database to use.
+use("workoutDB"); // @audit-issue "9 records inserted refers to seed.js @audit db.find does not access seed data, only data from below
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.workout.drop();
+
+
+db.workout.insert(workoutSeed);
+db.workout.insertMany([ 
+    { 
+        "type": "resistance",
+        "name": "back extension",
+        "weight": 1000,
+        "reps": 15,
+        "sets": 3
+
+},
+{ 
+        "type": "resistance",
+        "name": "landmine",
+        "weight": 80,
+        "reps": 15,
+        "sets": 3
+
+},
+
+{ 
+        "type": "cardio",
+        "name": "burpee",
+        "weight": 50,
+        "reps": 15,
+        "sets": 3
+
+}
+]);
+
+db.workout.find({type: "cardio"});
+
+
+// // Insert a few documents into the workout collection.
+//   { '_id': 1, 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
+
+// ]);
+
+// // Run a find command to view items sold on April 4th, 2014.
+// db.sales.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
+
+// // Run an aggregation to view total sales for each product in 2014.
+// const aggregation = [
+//   { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+//   { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
+// ];
+// db.sales.aggregate(aggregation);
