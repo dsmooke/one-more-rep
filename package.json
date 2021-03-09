@@ -1,0 +1,28 @@
+{
+  "name": "one-more-rep",
+  "version": "1.0.0",
+  "description": "hw17 Workout Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsmooke/one-more-rep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsmooke/one-more-rep/issues"
+  },
+  "homepage": "https://github.com/dsmooke/one-more-rep#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18",
+    "morgan": "^1.10.0"
+  }
+}
