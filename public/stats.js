@@ -33,7 +33,6 @@ function populateChart(data) {
   let pie2 = document.querySelector("#canvas4").getContext("2d");
 
   const daysOfWeek = [
-    // @audit @todo have to add multiple exercises to view dashboard?
     "Sunday",
     "Monday",
     "Tuesday",
