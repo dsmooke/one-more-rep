@@ -6,9 +6,11 @@ This is the seventeenth assignment of the UConn Coding Boot Camp curriculum.
 
 "One-More-Rep" is a fitness workout tracker application that lets the user add an exercise and log the weight, sets, reps, and the duration of each exercise. The user can view their workout history on the `stats` page which displays the total weight lifted as well as the total duration of each workout from their past seven workouts.
 
-View the deployed application [here](link)
+View the deployed application [here](https://just-one-more-rep.herokuapp.com/)
 
-!(fitness app demo)[img]
+![fitness-app-demo](/public/imgs/fitness-home-demo.png)
+
+![fitness-dash-demo](/public/imgs/fitness-dash-demo.png)
 
 ## Technologies Used
 
@@ -49,20 +51,6 @@ THEN the user should be able to view the combined weight of multiple exercises a
 
 ```
 
-### Definitions
-
-**MongoDB**
-:
-
-**Mongoose**
-:
-
-**models**
-:
-
-**seeders**
-:
-
 ## Installation
 
 #### App Setup
@@ -87,7 +75,7 @@ THEN the user should be able to view the combined weight of multiple exercises a
    - morgan
    - mongoose
 
-9. Create a `models` folder with `Workout.js` file.
+9. Create a `models` folder with `Workout.js` and `index.js` files.
 
 ### Developer
 
