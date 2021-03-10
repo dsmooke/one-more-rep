@@ -6,8 +6,6 @@ const htmlRoutes = require("./routes/html-routes");
 
 const PORT = process.env.PORT || 3000;
 
-// const db = require("./models/Workout.js");
-
 const app = express();
 
 app.use(logger("dev"));
@@ -19,15 +17,16 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
   useFindAndModify: false,
-  useUnifiedTopology: true, // @audit needed?
 });
 
 // Routes
 app.use(apiRoutes);
 app.use(htmlRoutes);
 
-// Start the server
+// Start the Server
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
