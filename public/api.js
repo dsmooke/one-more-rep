@@ -14,7 +14,6 @@ const API = {
     const id = location.search.split("=")[1];
 
     const res = await fetch("/api/workouts/:" + id, {
-      // @audit-issue colon needed?
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -25,7 +24,6 @@ const API = {
     return json;
   },
   async createWorkout(data = {}) {
-    // @audit-issue 500 error createWorkout, failed to load resource
     const res = await fetch("/api/workouts", {
       method: "POST",
       body: JSON.stringify(data),
