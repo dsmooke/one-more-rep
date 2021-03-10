@@ -21,7 +21,7 @@ async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
-    workout = await API.createWorkout(); // @audit-issue VM33:1 Uncaught (in promise) SyntaxError: Unexpected token < in JSON at position 0; @audit-issue async function at initExercise line 24
+    workout = await API.createWorkout();
     console.log(workout);
   }
   if (workout) {
@@ -29,7 +29,7 @@ async function initExercise() {
   }
 }
 
-initExercise(); // @audit-issue async function (anonymous) line 32
+initExercise();
 
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
