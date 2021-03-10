@@ -3,13 +3,7 @@ const router = require("express").Router();
 
 // Get Workouts
 router.get("/api/workouts", (req, res) => {
-  db.Workout.aggregate([
-    {
-      $addFields: {
-        totalDuration: { $sum: "$workout.duration" },
-      },
-    },
-  ])
+  db.Workout.find({}) // @audit-issue "find undefined"
     .then((dbWorkout) => {
       // console.log("Displaying all workouts.");
       // console.log(dbWorkout);
@@ -34,7 +28,7 @@ router.get("/api/workouts", (req, res) => {
 router.post("/api/workouts", ({ body }, res) => {
   // console.log("Adding workout...");
   // console.log(body);
-  db.Workout.create(body)
+  db.Workout.create(body) // @audit-issue can't read 'create of undefined'
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
@@ -43,14 +37,15 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
-// Add Exercise/Update Workout
-
+// Add Exercise
+// $inc increase/decrease the totalDuration field by the input duration, and
 // $push returns an array of all values that result from applying an expression to each document in a group of documents that share the same group by key. $push is only available in the $group stage
 
 router.put("/api/workouts/:id", (req, res) => {
   db.Workout.findOneAndUpdate(
     params.id,
     {
+      $inc: { totalDuration: req.body.duration },
       $push: { exercises: body },
     },
     { new: true }
@@ -65,16 +60,8 @@ router.put("/api/workouts/:id", (req, res) => {
 
 // Get Workouts in Range
 router.get("/api/workouts/range", (req, res) => {
-  db.Workout.aggregate([
-    {
-      $addFields: {
-        totalDuration: { $sum: "$workout.duration" },
-      },
-    },
-  ])
-    .sort({ day: "desc" })
+  db.Workout.find({})
     .limit(7)
-    .sort({ day: "asc" })
     .then((dbWorkout) => {
       // console.log("All of your Workouts");
       // console.log(dbWorkout);
@@ -86,4 +73,4 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = router; // @audit
