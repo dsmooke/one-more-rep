@@ -1,15 +1,15 @@
 // MongoDB Playground
 
 // Select the database to use.
-use("workoutDB"); // @audit-issue "9 records inserted refers to seed.js @audit db.find does not access seed data, only data from below
+use("workoutDB");
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-db.workout.drop();
+db.workoutDB.drop();
 
 
-db.workout.insert(workoutSeed);
-db.workout.insertMany([ 
+// db.workoutDB.insert({name: "bicep curl", reps: 20, sets: 2});
+db.workoutDB.insertMany([ 
     { 
         "type": "resistance",
         "name": "back extension",
@@ -37,10 +37,10 @@ db.workout.insertMany([
 }
 ]);
 
-db.workout.find({type: "cardio"});
+db.workoutDB.find({type: "cardio"});
 
 
-// // Insert a few documents into the workout collection.
+// // Insert a few documents into the workoutDB collection.
 //   { '_id': 1, 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
 
 // ]);
