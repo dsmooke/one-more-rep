@@ -1,8 +1,12 @@
 # One More Rep
 
-## Description
+<span align="left">
 
-This is the seventeenth assignment of the UConn Coding Boot Camp curriculum.
+<a href="https://img.shields.io/badge/License-MIT-brightgreen?style=plastic"><img alt="M.I.T. License use" src="https://img.shields.io/badge/License-MIT-brightgreen?style=plastic"/></a>
+
+ </span>
+ 
+## Description
 
 "One-More-Rep" is a fitness workout tracker application that lets the user add an exercise and log the weight, sets, reps, and the duration of each exercise. The user can view their workout history on the `stats` page which displays the total weight lifted as well as the total duration of each workout from their past seven workouts.
 
@@ -88,6 +92,9 @@ For this application I referred to Unit 17, Exercises 14, 15, and 26. My focus w
 [$addFields - Definition & Behavior](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
 
 [System Variables - Fields](https://docs.mongodb.com/manual/reference/aggregation-variables/#agg-system-variables)
+
+## Contact
+[Dana Smooke]("https://github.com/dsmooke")
 
 ## License
 
